@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loan Eligibility Prediction</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="../static/css/styles.css" />
+  </head>
+  <body>
+    <div class="header">
+      <div class="inner_header">
+        <h4>LoanEligibilityPrediction</h4>
+      </div>
+    </div>
+
+    <div class="form">
+      <img src="../static/images/loan5.jpg" alt="indigo" />
+      <div class="inner_form">
+        <form action="/predict" method="post">
+          <div class="inner_div">
+            <div class="input_div">
+              <h5>Annual Income:</h5>
+              <input
+                type="number"
+                name="Ann_Inc"
+                id="Ann_Inc"
+                required="required"
+                placeholder="Enter annual income of the candidate:"
+                value="{{ request.form.Ann_Inc or Ann_Inc }}"
+              />
+            </div>
+            <div class="input_div">
+              <h5>Loan Amount:</h5>
+              <input
+                type="number"
+                name="Loan_Amt"
+                id="Loan_Amt"
+                required="required"
+                placeholder="Enter the loan amount:"
+                value="{{ request.form.Loan_Amt or Loan_Amt }}"
+              />
+            </div>
+          </div>
+          <div class="inner_div">
+            <div class="input_div">
+              <h5>Loan Term:</h5>
+              <input
+                type="number"
+                name="Loan_term"
+                id="Loan_term"
+                required="required"
+                placeholder="Enter the loan term:"
+                value="{{ request.form.Loan_term or Loan_term }}"
+              />
+            </div>
+            <div class="input_div">
+              <h5>Cibil Rating:</h5>
+              <input
+                type="number"
+                name="Cibil_rat"
+                id="Cibil_rat"
+                required="required"
+                placeholder="Enter the cibil score:"
+                value="{{ request.form.Cibil_rat or Cibil_rat }}"
+              />
+            </div>
+          </div>
+          <div class="inner_div">
+            <div class="input_div">
+              <h5>Residential Assets:</h5>
+              <input
+                type="number"
+                name="Res_ass"
+                id="Res_ass"
+                required="required"
+                placeholder="Enter the residential asset:"
+                value="{{ request.form.Res_ass or Res_ass }}"
+              />
+            </div>
+            <div class="input_div">
+              <h5>Commercial Assets:</h5>
+              <input
+                type="number"
+                name="Com_ass"
+                id="Com_ass"
+                required="required"
+                placeholder="Enter the commercial asset:"
+                value="{{ request.form.Com_ass or Com_ass }}"
+              />
+            </div>
+          </div>
+          <div class="inner_div">
+            <div class="input_div">
+              <h5>Luxury Assets:</h5>
+              <input
+                type="number"
+                name="Lux_ass"
+                id="Lux_ass"
+                required="required"
+                placeholder="Enter the luxury asset:"
+                value="{{ request.form.Lux_ass or Lux_ass }}"
+              />
+            </div>
+            <div class="input_div">
+              <h5>Bank Assets:</h5>
+              <input
+                type="number"
+                name="Bank_ass"
+                id="Bank_ass"
+                required="required"
+                placeholder="Enter the bank asset:"
+                value="{{ request.form.Bank_ass or Bank_ass }}"
+              />
+            </div>
+          </div>
+          <input type="submit" value="Predict" class="btn btn-danger" />
+        </form>
+        <h3 style="text-align: center; color: #000; font-weight: bold">
+          {{ prediction_text }}
+        </h3>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  </body>
+</html>
